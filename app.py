@@ -4,7 +4,7 @@ from match import match, encode
 import requests
 
 app = Flask(__name__)
-cors = CORS(app, resources={"/": {"origins": "*"}})
+cors = CORS(app, resources={"/": {"origins": "*"}, "/employee/register": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/employee/register", methods=["POST", "GET"])
