@@ -21,8 +21,10 @@ def encodeImg():
 @cross_origin()
 def upload():
     if "id" in request.args:
-        file = request.files["file"]
-        file.save("uploads/tmp.jpg")
+        file = base64.b64decode(request.form["file"])
+        with open("uploads/tmp.jpg", "wb") as fp:
+            fp.write(file)
+        fp.close()
         if match(request.args.get("id")) == True:
             return jsonify({"auth": "true"}), 200
         else:
