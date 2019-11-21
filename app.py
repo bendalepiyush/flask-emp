@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, make_response
 from flask_cors import CORS, cross_origin
 from match import match, encode
 import requests
+import base64
 
 app = Flask(__name__)
 cors = CORS(app, resources={"/": {"origins": "*"}, "/employee/register": {"origins": "*"}})
